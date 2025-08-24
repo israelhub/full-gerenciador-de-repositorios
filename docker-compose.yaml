@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   # Banco de dados PostgreSQL
   postgres:
@@ -28,7 +30,7 @@ services:
     container_name: gerenciador-backend
     restart: unless-stopped
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
       DATABASE_URL: postgresql://postgres:postgres123@postgres:5432/gerenciador_contatos
       JWT_SECRET: your-super-secret-jwt-key-here-change-in-production
       JWT_EXPIRES_IN: 7d
@@ -36,6 +38,8 @@ services:
       JWT_REFRESH_EXPIRES_IN: 30d
       PORT: 8000
       RUN_SEEDS: "true"
+      ENABLE_SWAGGER: "true"
+      CORS_ORIGINS: "http://localhost:3000,http://127.0.0.1:3000"
     ports:
       - "8000:8000"
     depends_on:
@@ -52,8 +56,9 @@ services:
     container_name: gerenciador-frontend
     restart: unless-stopped
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
       NEXT_PUBLIC_API_URL: http://localhost:8000/api
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8000/api
     ports:
       - "3000:3000"
     depends_on:
