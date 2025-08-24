@@ -1,0 +1,28 @@
+# Arquivos de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs do Docker
+*.log
+
+# Dados persistentes do Docker
+postgres_data/
+postgres_dev_data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backups temporários
+*.backup
+*.bak
+*.tmp

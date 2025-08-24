@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/israelhub/backend-gerenciador-de-contatos.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/israelhub/frontend-gerenciador-de-contatos.git
